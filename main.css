@@ -24,7 +24,7 @@ body {
     flex-direction: column;
     align-content: center;
     overflow: scroll;
-    height: 300vh;
+    height: 325vh;
 }
 .fade-out-element {
     animation: fade-out 1.4s ease-in;
