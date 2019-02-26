@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>css to the rescue</title>
+<link href="https://fonts.googleapis.com/css?family=Maven+Pro|Playfair+Display" rel="stylesheet">
+<meta name="author" content="Marcel Fleuren">
+  <meta name="author" content="Edgar Thomas">
+  <link rel="stylesheet" href="main.css">
+</head>
+    <body>
+        <article>
+            <h2 class="hidden headLine">Do not go gentle into that good night,</h2>
+            <p class="hidden">
+                Old age should burn and rave at close of day;
+                Rage, rage against the dying of the light.
+            </p>
+            <p class="hidden">Though wise men at their end know dark is right,
+                Because their words had forked no lightning they
+                Do not go gentle into that good night.
+            </p>
+            <p class="hidden">Good men, the last wave by, crying how bright
+                Their frail deeds might have danced in a green bay,
+                Rage, rage against the dying of the light.</p>
+            <p class="hidden">Wild men who caught and sang the sun in flight,
+                And learn, too late, they grieved it on its way,
+                Do not go gentle into that good night.</p>
+            <p class="hidden">Grave men, near death, who see with blinding sight
+                Blind eyes could blaze like meteors and be gay,
+                Rage, rage against the dying of the light.</p>
+            <p class="hidden">And you, my father, there on the sad height,
+                Curse, bless, me now with your fierce tears, I pray.
+                Do not go gentle into that good night.
+                Rage, rage against the dying of the light.</p>
+        </article>
+<script>
+    var animateHTML = function () {
+        var elems;
+        var windowHeight;
+        function init() {
+            elems = document.querySelectorAll('.hidden');
+            windowHeight = window.innerHeight;
+            addEventHandlers();
+            checkPosition();
+        }
+        function addEventHandlers() {
+            window.addEventListener('scroll', checkPosition);
+            window.addEventListener('resize', init);
+        }
+        function checkPosition() {
+            for (var i = 0; i < elems.length; i++) {
+                var positionFromTop = elems[i].getBoundingClientRect().top;
+                if (positionFromTop - windowHeight <= -350) {
+                    elems[i].className = elems[i].className.replace(
+                        'hidden',
+                        'fade-in-element'
+                    );
+                }
+                if (positionFromTop - windowHeight >= -600){
+                            elems[i].className = elems[i].className.replace(
+                        'fade-in-element',
+                        'hidden'
+                    );
+                }
+            }
+        }
+        return {
+            init: init
+        };
+    };
+    animateHTML().init();
+
+
+
+
+    // window.onscroll = function () { myFunction() };
+
+    // function myFunction (){
+    //     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
+    //        document.getElementById("headLine").className = "fadeIn";
+    //        document.querySelector("h2").className = "fadeOut"
+    //     } else {
+    //        document.getElementById("headLine").className = "";
+    //        document.querySelector("h2").className = ""
+    //     }
+    // }
+</script>
+    </body>
+    <footer></footer>
+</html>
