@@ -52,13 +52,13 @@
         function checkPosition() {
             for (var i = 0; i < elems.length; i++) {
                 var positionFromTop = elems[i].getBoundingClientRect().top;
-                if (positionFromTop - windowHeight <= -350) {
+                if (positionFromTop - windowHeight <= -250) {
                     elems[i].className = elems[i].className.replace(
                         'hidden',
                         'fade-in-element'
                     );
                 }
-                if (positionFromTop - windowHeight >= -600){
+                if (positionFromTop - windowHeight >= -500){
                             elems[i].className = elems[i].className.replace(
                         'fade-in-element',
                         'hidden'
