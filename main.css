@@ -1,6 +1,5 @@
 /* stylesheet variables */
 :root{
-    --red: #CD5C5C;
     --white: #F8F1DF;
     --grey: #4C4E4F;
     --heading-size: 2.5rem;
@@ -14,7 +13,57 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-body {
+.header {
+    margin-bottom: 10rem;
+    padding: 2rem;
+}
+.header__title {
+     overflow: hidden;
+    border-right: .15em solid var(--grey);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing-head 4.5s steps(40, end) forwards,
+        blink-caret-head .75s step-end forwards;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.header__subtitle {
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid var(--grey);
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 4.5s steps(40, end) forwards,
+        blink-caret .75s step-end infinite;
+    font-size: 1rem;
+    width: 0%;
+    animation-delay: 4.5s;
+}
+.article{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+.article__title {
+    font-family: 'Maven Pro', sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+.article__paragraph{
+    color: var(--black);
+    font-size: var(--paragraph-size);
+    font-weight: 200;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10rem;
+}
+.body {
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
     background-color: var(--white);
     margin: 0 auto;
@@ -24,7 +73,28 @@ body {
     flex-direction: column;
     align-content: center;
     overflow: scroll;
-    height: 335vh;
+    height: 320vh;
+}
+.body:after {
+  animation: grain 8s steps(10) infinite;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png);
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.3;
+  position: fixed;
+  top: -110%;
+  width: 300%;
+}
+.body__icon {
+    position: fixed;
+    top: 60vh;
+    left: 33.33%;
+    /* op left kun je een calc functie maken die de ruimteschip centreert */
+}
+
+.headLine {
+    margin-bottom: 10rem;
 }
 .fade-out-element {
     animation: fade-out 1.4s ease-in;
@@ -33,6 +103,23 @@ body {
 .fade-in-element {
   animation: fade-in 1.2s ease-in;
   animation-fill-mode: forwards;
+}
+.hidden {
+    transition: 1.4s linear;
+    animation: fade-out;
+    opacity: 0;
+}
+@keyframes grain {
+  0%, 100% { transform:translate(0, 0) }
+  10% { transform:translate(-5%, -10%) }
+  20% { transform:translate(-15%, 5%) }
+  30% { transform:translate(7%, -25%) }
+  40% { transform:translate(-5%, 25%) }
+  50% { transform:translate(-15%, 10%) }
+  60% { transform:translate(15%, 0%) }
+  70% { transform:translate(0%, 15%) }
+  80% { transform:translate(3%, 35%) }
+  90% { transform:translate(-10%, 10%) }
 }
 @keyframes fade-in {
     from {opacity: 0;}
@@ -46,56 +133,22 @@ body {
         opacity: 0;
     }
 }
-.hidden {
-    transition: 1.4s linear;
-    animation: fade-out;
-    opacity: 0;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 75% }
 }
-article {
-    /* box-shadow: 0px 25px 30px -25px #111; */
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
+@keyframes typing-head {
+  from { width: 0 }
+  to {
+      width: 75%; }
 }
-p {
-    color: var(--black);
-    font-size: var(--paragraph-size);
-    font-weight: 200;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 10rem;
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color:var(--grey); }
 }
-.headLine {
-    margin-bottom: 10rem;
+@keyframes blink-caret-head {
+  from, to { border-color: transparent }
+  50% { border-color:var(--grey); }
+  100% { border-color: transparant }
 }
-h2 {
-    font-family: 'Maven Pro', sans-serif;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-}
-body:after {
-  animation: grain 8s steps(10) infinite;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/paper-pattern.png);
-  content: "";
-  height: 300%;
-  left: -50%;
-  opacity: 0.3;
-  position: fixed;
-  top: -110%;
-  width: 300%;
-    }
-    @keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
-}
-
