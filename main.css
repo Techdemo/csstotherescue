@@ -18,16 +18,15 @@ html {
     padding: 2rem;
 }
 .header__title {
-     overflow: hidden;
+    overflow: hidden;
     border-right: .15em solid var(--grey);
     white-space: nowrap;
-    margin: 0 auto;
     letter-spacing: .15em;
     animation:
         typing-head 4.5s steps(40, end) forwards,
         blink-caret-head .75s step-end forwards;
     font-size: 2rem;
-    text-align: center;
+    text-align: left;
 }
 .header__subtitle {
     text-align: center;
