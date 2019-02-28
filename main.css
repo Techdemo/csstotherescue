@@ -26,7 +26,7 @@ html {
     animation:
         typing-head 4.5s steps(40, end) forwards,
         blink-caret-head .75s step-end forwards;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
 }
 .header__subtitle {
@@ -61,7 +61,7 @@ html {
     font-size: var(--paragraph-size);
     font-weight: 200;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
 }
 .body {
     font-size: calc(16px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
@@ -73,7 +73,7 @@ html {
     flex-direction: column;
     align-content: center;
     overflow: scroll;
-    height: 320vh;
+    height: 250vh;
 }
 .body:after {
   animation: grain 8s steps(10) infinite;
@@ -92,7 +92,6 @@ html {
     left: 33.33%;
     /* op left kun je een calc functie maken die de ruimteschip centreert */
 }
-
 .headLine {
     margin-bottom: 10rem;
 }
